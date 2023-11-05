@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather PRO</title>
+    <link rel="stylesheet" href="{% static 'styles.css'%}" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico'%}">
+</head>
+<body>
+    <div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Enter city name"/>
+        <button type="submit">Enter</button>
+    </form>
+    <div class="Weather">
+        <div class="day">
+            <h1>{{day}}</h1>
+        </div>
+        <div class="city">
+            <h1>{{city}}</h1>
+        </div>
+            <div>
+                <h1>{{description}}</h1>
+            </div>
+            <div class="icon">
+                <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="">
+            </div>
+            <div class="temp">
+                <h1>{{temp}}</h1>
+            </div>   
+</div>
+
+    
+    
+</div>
+</div>
+</body>
+</html>
