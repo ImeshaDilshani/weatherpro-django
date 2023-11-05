@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from decouple import config
 import requests
 import datetime
 
@@ -9,7 +10,8 @@ def index(request):
     else:
         city = 'Amsterdam'
 
-    appid = '19a8a274feb9e734e9d7bc76594478b6'
+    # appid = '19a8a274feb9e734e9d7bc76594478b6'
+    appid = config('OPEN_WEATHER_API_KEY') 
     URL = 'http://api.openweathermap.org/data/2.5/weather'
     PARAMS = {'q': 'city','appid': appid, 'units': 'metric'}
     r = requests.get(url=URL, params=PARAMS)
